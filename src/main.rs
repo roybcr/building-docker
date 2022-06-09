@@ -2,7 +2,7 @@
 fn main() {
     // You can use print statements as follows for debugging, they'll be visible when running tests.
     println!("Logs from your program will appear here!");
-    
+
     let args: Vec<_> = std::env::args().collect();
     let command = &args[3];
     let command_args = &args[4..];
@@ -10,7 +10,7 @@ fn main() {
         .args(command_args)
         .output()
         .unwrap();
-    
+
     if output.status.success() {
         let std_out = std::str::from_utf8(&output.stdout).unwrap();
         println!("{}", std_out)
